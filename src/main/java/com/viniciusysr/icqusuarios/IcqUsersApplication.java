@@ -4,10 +4,10 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class IcqusuariosApplication {
+public class IcqUsersApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(IcqusuariosApplication.class, args);
+		SpringApplication.run(IcqUsersApplication.class, args);
 	}
 
 }
