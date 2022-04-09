@@ -1,4 +1,4 @@
-package com.viniciusysr.icqusuarios;
+package com.viniciusysr.icqusers;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
