@@ -3,6 +3,7 @@ package com.viniciusysr.icqusers.resources;
 import java.util.List;
 
 import com.viniciusysr.icqusers.domain.Inspectors;
+import com.viniciusysr.icqusers.dto.InspectorDTO;
 import com.viniciusysr.icqusers.services.InspectorService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -18,9 +19,10 @@ public class InspectorResource {
     private InspectorService service;
 
     @GetMapping
-    public ResponseEntity <List<Inspectors>>findAll() {
+    public ResponseEntity <List<InspectorDTO>>findAll() {
         List<Inspectors> list = service.findAll();
-        return ResponseEntity.ok().body(list);
+        List<InspectorDTO> listDto = list.stream().map(InspectorDTO::new).toList();
+        return ResponseEntity.ok().body(listDto);
 
     }
 }
