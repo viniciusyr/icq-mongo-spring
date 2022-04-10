@@ -1,11 +1,14 @@
 package com.viniciusysr.icqusers.domain;
 
+import com.viniciusysr.icqusers.dto.ObservationDTO;
 import com.viniciusysr.icqusers.dto.RespInscDTO;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 import java.util.Objects;
 
 @Document
@@ -18,7 +21,9 @@ public class Inspection implements Serializable {
     private String body;
     private RespInscDTO inspector;
 
-    public Inspection() {
+    private List<ObservationDTO> observations = new ArrayList<>();
+
+   public Inspection() {
     }
 
     public Inspection(String id, Date date, String title, String body, RespInscDTO inspector) {
@@ -69,6 +74,14 @@ public class Inspection implements Serializable {
         this.inspector = inspector;
     }
 
+    public List<ObservationDTO> getObservations() {
+        return observations;
+    }
+
+    public void setObservations(List<ObservationDTO> observations) {
+        this.observations = observations;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -81,4 +94,5 @@ public class Inspection implements Serializable {
     public int hashCode() {
         return Objects.hash(id);
     }
+
 }
