@@ -2,6 +2,7 @@ package com.viniciusysr.icqusers.config;
 
 import com.viniciusysr.icqusers.domain.Inspection;
 import com.viniciusysr.icqusers.domain.Inspector;
+import com.viniciusysr.icqusers.dto.RespInscDTO;
 import com.viniciusysr.icqusers.repository.InspectionsRepository;
 import com.viniciusysr.icqusers.repository.InspectorRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -34,11 +35,12 @@ public class Instantiation implements CommandLineRunner {
         Inspector joao = new Inspector(null, "Joao Victor Fernandes", "qualidade4@isma.com.br");
         Inspector mario = new Inspector(null, "Mario dos Santos", "qualidade5@isma.com.br");
 
-        Inspection insp1 = new Inspection(null, sdf.parse("21/03/2022"), "Pedido 000000","LSE 130x55x2300", vinicius);
-        Inspection insp2 = new Inspection(null, sdf.parse("22/03/2022"), "Pedido 000001","LSP 130x55x2300", vinicius);
+        inspectorRepository.saveAll(Arrays.asList(vinicius, joao, mario));
 
-         inspectorRepository.saveAll(Arrays.asList(vinicius, joao, mario));
-         inspectionsRepository.saveAll(Arrays.asList(insp1, insp2));
+        Inspection insp1 = new Inspection(null, sdf.parse("21/03/2022"), "Pedido 000000","LSE 130x55x2300", new RespInscDTO(vinicius));
+        Inspection insp2 = new Inspection(null, sdf.parse("22/03/2022"), "Pedido 000001","LSP 130x55x2300", new RespInscDTO(vinicius));
+
+        inspectionsRepository.saveAll(Arrays.asList(insp1, insp2));
 
 
     }

@@ -1,5 +1,6 @@
 package com.viniciusysr.icqusers.domain;
 
+import com.viniciusysr.icqusers.dto.RespInscDTO;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
@@ -15,12 +16,12 @@ public class Inspection implements Serializable {
     private Date date;
     private String title;
     private String body;
-    private Inspector inspector;
+    private RespInscDTO inspector;
 
     public Inspection() {
     }
 
-    public Inspection(String id, Date date, String title, String body, Inspector inspector) {
+    public Inspection(String id, Date date, String title, String body, RespInscDTO inspector) {
         this.id = id;
         this.date = date;
         this.title = title;
@@ -60,11 +61,11 @@ public class Inspection implements Serializable {
         this.body = body;
     }
 
-    public Inspector getInspector() {
+    public RespInscDTO getInspector() {
         return inspector;
     }
 
-    public void setInspector(Inspector inspector) {
+    public void setInspector(RespInscDTO inspector) {
         this.inspector = inspector;
     }
 
