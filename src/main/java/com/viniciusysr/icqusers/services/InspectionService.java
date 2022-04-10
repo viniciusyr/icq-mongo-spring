@@ -22,7 +22,7 @@ public class InspectionService {
     }
 
     public List<Inspection> findByTitle(String text) {
-        return repo.findByTitleContainingIgnoreCase(text);
+        return repo.searchPedido(text);
     }
 
 }
