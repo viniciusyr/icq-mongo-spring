@@ -1,6 +1,5 @@
 package com.viniciusysr.icqusers.services;
 
-import com.sun.jdi.ObjectCollectedException;
 import com.viniciusysr.icqusers.domain.Inspectors;
 import com.viniciusysr.icqusers.dto.InspectorDTO;
 import com.viniciusysr.icqusers.repository.InspectorRepository;
@@ -28,6 +27,11 @@ public class InspectorService {
 
     public Inspectors insert(Inspectors obj){
         return repo.insert(obj);
+    }
+
+    public void delete(String id){
+        findById(id);
+        repo.deleteById(id);
     }
 
     public Inspectors fromDTO(InspectorDTO objDto){
