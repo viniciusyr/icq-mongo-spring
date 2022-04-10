@@ -3,6 +3,7 @@ package com.viniciusysr.icqusers.resources;
 import java.net.URI;
 import java.util.List;
 
+import com.viniciusysr.icqusers.domain.Inspection;
 import com.viniciusysr.icqusers.domain.Inspector;
 import com.viniciusysr.icqusers.dto.InspectorDTO;
 import com.viniciusysr.icqusers.services.InspectorService;
@@ -51,6 +52,12 @@ public class InspectorResource {
         obj.setId(id);
         obj = service.update(obj);
         return ResponseEntity.noContent().build();
+    }
+
+    @RequestMapping(value="/{id}/inspections", method= RequestMethod.GET)
+    public ResponseEntity<List<Inspection>> findInspections(@PathVariable String id) {
+        Inspector obj = service.findById(id);
+        return ResponseEntity.ok().body(obj.getInspections());
     }
 
 }
