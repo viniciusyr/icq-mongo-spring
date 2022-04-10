@@ -44,4 +44,13 @@ public class InspectorResource {
         return ResponseEntity.noContent().build();
     }
 
+    @PutMapping(value="/{id}")
+    public ResponseEntity<Void> update(@RequestBody InspectorDTO objDto, @PathVariable String id) {
+        Inspectors obj = service.fromDTO(objDto);
+        obj = service.insert(obj);
+        obj.setId(id);
+        obj = service.update(obj);
+        return ResponseEntity.noContent().build();
+    }
+
 }

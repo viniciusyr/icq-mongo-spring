@@ -34,6 +34,18 @@ public class InspectorService {
         repo.deleteById(id);
     }
 
+    public Inspectors update(Inspectors obj){
+        Inspectors newObj = findById(obj.getId());
+        updateData(newObj, obj);
+        return repo.save(newObj);
+    }
+
+    private void updateData(Inspectors newObj, Inspectors obj) {
+        newObj.setName(obj.getName());
+        newObj.setEmail(obj.getEmail());
+    }
+
+
     public Inspectors fromDTO(InspectorDTO objDto){
         return new Inspectors(objDto.getId(), objDto.getName(), objDto.getEmail());
     }
