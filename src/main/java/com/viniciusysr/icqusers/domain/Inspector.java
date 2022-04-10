@@ -8,7 +8,7 @@ import java.io.Serializable;
 import java.util.Objects;
 
 @Document(collection="inspector")
-public class Inspectors implements Serializable {
+public class Inspector implements Serializable {
     @Serial
     private static final long serialVersionUID = 1L;
 
@@ -17,11 +17,11 @@ public class Inspectors implements Serializable {
     private String name;
     private String email;
 
-    public Inspectors() {
+    public Inspector() {
 
     }
 
-    public Inspectors(String id, String name, String email) {
+    public Inspector(String id, String name, String email) {
         this.id = id;
         this.name = name;
         this.email = email;
@@ -55,7 +55,7 @@ public class Inspectors implements Serializable {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        Inspectors that = (Inspectors) o;
+        Inspector that = (Inspector) o;
         return Objects.equals(id, that.id);
     }
 

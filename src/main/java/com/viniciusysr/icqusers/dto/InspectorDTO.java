@@ -1,6 +1,6 @@
 package com.viniciusysr.icqusers.dto;
 
-import com.viniciusysr.icqusers.domain.Inspectors;
+import com.viniciusysr.icqusers.domain.Inspector;
 
 import java.io.Serial;
 import java.io.Serializable;
@@ -17,7 +17,7 @@ public final class InspectorDTO implements Serializable {
 
     }
 
-    public InspectorDTO(Inspectors obj) {
+    public InspectorDTO(Inspector obj) {
         id = obj.getId();
         name = obj.getName();
         email = obj.getEmail();

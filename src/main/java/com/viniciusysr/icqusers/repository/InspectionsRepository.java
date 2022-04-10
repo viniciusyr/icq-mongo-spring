@@ -1,10 +1,10 @@
 package com.viniciusysr.icqusers.repository;
 
-import com.viniciusysr.icqusers.domain.Inspector;
+import com.viniciusysr.icqusers.domain.Inspection;
 import org.springframework.data.mongodb.repository.MongoRepository;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public interface InspectorRepository extends MongoRepository<Inspector, String> {
+public interface InspectionsRepository extends MongoRepository<Inspection, String> {
 
 }
