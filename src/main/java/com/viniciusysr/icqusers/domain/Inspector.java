@@ -1,10 +1,13 @@
 package com.viniciusysr.icqusers.domain;
 
 import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.DBRef;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 import java.io.Serial;
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
 
 @Document(collection="inspector")
@@ -16,6 +19,9 @@ public class Inspector implements Serializable {
     private String id;
     private String name;
     private String email;
+
+    @DBRef(lazy = true)
+    private List<Inspection> inspections = new ArrayList<>();
 
     public Inspector() {
 
@@ -49,6 +55,14 @@ public class Inspector implements Serializable {
 
     public void setEmail(String email) {
         this.email = email;
+    }
+
+    public List<Inspection> getInspections() {
+        return inspections;
+    }
+
+    public void setInspections(List<Inspection> inspections) {
+        this.inspections = inspections;
     }
 
     @Override

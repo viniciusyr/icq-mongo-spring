@@ -43,5 +43,8 @@ public class Instantiation implements CommandLineRunner {
         inspectionsRepository.saveAll(Arrays.asList(insp1, insp2));
 
 
+        vinicius.getInspections().addAll(Arrays.asList(insp1, insp2));
+        inspectorRepository.save(vinicius);
+
     }
 }
